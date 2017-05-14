@@ -16,6 +16,7 @@ public class VolleySingleton {
 
     private static volatile VolleySingleton mInstance;
     private static NowPlayingFragment mCtx;
+    private static PopularFragment mCtx2;
     private RequestQueue mRequestQueue;
 
     /*private VolleySingleton(Context context)
@@ -38,7 +39,7 @@ public class VolleySingleton {
         mRequestQueue = getRequestQueue();
     }
 
-   /* private VolleySingleton(PopularFragment context1) {
+    private VolleySingleton(PopularFragment context1) {
         if (mInstance != null) {
             throw new RuntimeException(
                     "Use getInstance() method to get the single instance of this class");
@@ -47,7 +48,8 @@ public class VolleySingleton {
         mRequestQueue = getRequestQueue();
     }
 
-    private VolleySingleton(ComingSoonFragment context) {
+
+    /*private VolleySingleton(ComingSoonFragment context) {
         if (mInstance != null) {
             throw new RuntimeException("Use getInstance() method to get the single instance of this class");
         }
@@ -60,6 +62,15 @@ public class VolleySingleton {
         if (mInstance == null) {
             synchronized (VolleySingleton.class) {
                 if (mInstance == null) mInstance = new VolleySingleton(context);
+            }
+        }
+        return mInstance;
+    }
+
+    public static VolleySingleton getInstance(PopularFragment context1) {
+        if (mInstance == null) {
+            synchronized (VolleySingleton.class) {
+                if (mInstance == null) mInstance = new VolleySingleton(context1);
             }
         }
         return mInstance;
@@ -78,14 +89,7 @@ public class VolleySingleton {
 }
 
 
-   /* public static VolleySingleton getInstance(PopularFragment context1) {
-        if (mInstance == null) {
-            synchronized (VolleySingleton.class) {
-                if (mInstance == null) mInstance = new VolleySingleton(context1);
-            }
-        }
-        return mInstance;
-    }
+   /*
 
     public static VolleySingleton getInstance(ComingSoonFragment context2) {
         if (mInstance == null) {

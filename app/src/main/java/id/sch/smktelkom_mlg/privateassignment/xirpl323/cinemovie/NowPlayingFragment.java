@@ -28,6 +28,7 @@ import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.service.VolleyS
  * A simple {@link Fragment} subclass.
  */
 public class NowPlayingFragment extends Fragment {
+
     ArrayList<Result> mlist = new ArrayList<>();
     filmAdapter filmAdapter;
 

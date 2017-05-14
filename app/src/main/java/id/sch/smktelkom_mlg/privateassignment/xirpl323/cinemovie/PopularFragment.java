@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -17,6 +18,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.adapter.filmAdapter;
 import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.adapter.popularAdapter;
 import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.model.Result;
 import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.model.ResultResponse;
@@ -28,7 +30,7 @@ import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.service.VolleyS
  */
 public class PopularFragment extends Fragment {
 
-   /* ArrayList<Result> mlist = new ArrayList<>();
+   ArrayList<Result> mlist = new ArrayList<>();
     popularAdapter popularAdapter;
 
     @Override
@@ -54,14 +56,13 @@ public class PopularFragment extends Fragment {
     private void downloadDataResource() {
         String url = "https://api.themoviedb.org/3/movie/popular?api_key=83e9bd45d01bdec860110180bf6d664b&language=en-US&page=1";
 
+
         GsonGetRequest<ResultResponse> myRequest = new GsonGetRequest<ResultResponse>
                 (url, ResultResponse.class, null, new Response.Listener<ResultResponse>() {
-
                     @Override
                     public void onResponse(ResultResponse response) {
                         Log.d("FLOW", "onResponse: " + (new Gson().toJson(response)));
-                        fillColor(response.result);
-                        mlist.addAll(response.result);
+                        mlist.addAll(response.results);
                         popularAdapter.notifyDataSetChanged();
                     }
 
@@ -75,9 +76,5 @@ public class PopularFragment extends Fragment {
         VolleySingleton.getInstance(this).addToRequestQueue(myRequest);
     }
 
-    private void fillColor(List<Result> results) {
-        for (int i = 0; i < results.size(); i++)
-            results.get(i).color = ColorUtil.getRandomColor();
-    }*/
 
 }
