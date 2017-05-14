@@ -20,16 +20,7 @@ public class VolleySingleton {
     private static ComingSoonFragment mCtx3;
     private RequestQueue mRequestQueue;
 
-    /*private VolleySingleton(Context context)
-    {
-        if (mInstance != null)
-        {
-            throw new RuntimeException(
-                    "Use getInstance() method to get the single instance of this class");
-        }
-        mCtx = context;
-        mRequestQueue = getRequestQueue();
-    }*/
+
 
     private VolleySingleton(NowPlayingFragment context) {
         if (mInstance != null) {
