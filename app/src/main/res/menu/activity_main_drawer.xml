@@ -13,7 +13,7 @@
             android:title="Coming Soon" />
         <item
             android:id="@+id/nav_theater"
-            android:icon="@drawable/ic_theaters_black_24dp"
+            android:icon="@drawable/ic_stars_black_24dp"
             android:title="Popular" />
 
 

@@ -54,7 +54,7 @@ public class ComingSoonFragment extends Fragment {
     }
 
     private void downloadDataResource() {
-        String url = "https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>&language=en-US&page=1";
+        String url = "https://api.themoviedb.org/3/movie/upcoming?api_key=33285a795077c957c9e41c1812440c2a&language=en-US&page=1";
 
         GsonGetRequest<ResultResponse> myRequest = new GsonGetRequest<ResultResponse>
                 (url, ResultResponse.class, null, new Response.Listener<ResultResponse>() {
