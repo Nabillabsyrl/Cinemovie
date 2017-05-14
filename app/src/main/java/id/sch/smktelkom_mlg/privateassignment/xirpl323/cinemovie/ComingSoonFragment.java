@@ -48,22 +48,20 @@ public class ComingSoonFragment extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(llm);
 
-        //downloadDataResource();
+        downloadDataResource();
 
         return rootView;
     }
 
-   /* private void downloadDataResource() {
-        String url = "https://api.themoviedb.org/3/movie/popular?api_key=83e9bd45d01bdec860110180bf6d664b&language=en-US&page=1";
+    private void downloadDataResource() {
+        String url = "https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>&language=en-US&page=1";
 
         GsonGetRequest<ResultResponse> myRequest = new GsonGetRequest<ResultResponse>
                 (url, ResultResponse.class, null, new Response.Listener<ResultResponse>() {
-
                     @Override
                     public void onResponse(ResultResponse response) {
                         Log.d("FLOW", "onResponse: " + (new Gson().toJson(response)));
-                        fillColor(response.result);
-                        mlist.addAll(response.result);
+                        mlist.addAll(response.results);
                         soonAdapter.notifyDataSetChanged();
                     }
 
@@ -77,8 +75,5 @@ public class ComingSoonFragment extends Fragment {
         VolleySingleton.getInstance(this).addToRequestQueue(myRequest);
     }
 
-    private void fillColor(List<Result> results) {
-        for (int i = 0; i < results.size(); i++)
-            results.get(i).color = ColorUtil.getRandomColor();
-    } */
+
 }

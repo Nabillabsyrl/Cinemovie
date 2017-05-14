@@ -1,6 +1,8 @@
 package id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 
 import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.NowPlayingFragment;
 import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.R;
+import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.ScrollingActivity1;
 import id.sch.smktelkom_mlg.privateassignment.xirpl323.cinemovie.model.Result;
 
 /**
@@ -51,7 +54,7 @@ public class filmAdapter extends RecyclerView.Adapter<filmAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(filmAdapter.MyViewHolder holder, int position) {
-        Result results = mlist.get(position);
+        final Result results = mlist.get(position);
         holder.tvName.setText(results.title);
         holder.tvDesc.setText(results.overview);
         image = url + results.backdrop_path;
@@ -61,7 +64,23 @@ public class filmAdapter extends RecyclerView.Adapter<filmAdapter.MyViewHolder> 
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher)
                 .into(holder.imageView);
+
+        //setAnimation(holder.itemView,position);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = results.id;
+                Intent intent = new Intent(context, ScrollingActivity1.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("movie_title",results.title);
+                intent.putExtra("poster_path",results.backdrop_path);
+                intent.putExtra("description",results.overview);
+                context.startActivity(intent);
+            }
+        });
     }
+
+
 
 
     @Override
@@ -75,6 +94,7 @@ public class filmAdapter extends RecyclerView.Adapter<filmAdapter.MyViewHolder> 
         TextView tvName;
         TextView tvDesc;
         ImageView imageView;
+        CardView cardView;
 
         public MyViewHolder(View v) {
             super(v);
@@ -82,6 +102,9 @@ public class filmAdapter extends RecyclerView.Adapter<filmAdapter.MyViewHolder> 
             tvName = (TextView) v.findViewById(R.id.tv_text);
             tvDesc = (TextView) v.findViewById(R.id.tv_desc);
             imageView = (ImageView) v.findViewById(R.id.iv_image);
+            cardView = (CardView) v.findViewById(R.id.cardView);
         }
+
+
     }
 }

@@ -17,6 +17,7 @@ public class VolleySingleton {
     private static volatile VolleySingleton mInstance;
     private static NowPlayingFragment mCtx;
     private static PopularFragment mCtx2;
+    private static ComingSoonFragment mCtx3;
     private RequestQueue mRequestQueue;
 
     /*private VolleySingleton(Context context)
@@ -49,13 +50,13 @@ public class VolleySingleton {
     }
 
 
-    /*private VolleySingleton(ComingSoonFragment context) {
+    private VolleySingleton(ComingSoonFragment context2) {
         if (mInstance != null) {
             throw new RuntimeException("Use getInstance() method to get the single instance of this class");
         }
-        mCtx3 = context;
+        mCtx3 = context2;
         mRequestQueue = getRequestQueue();
-    } */
+    }
 
 
     public static VolleySingleton getInstance(NowPlayingFragment context) {
@@ -76,6 +77,15 @@ public class VolleySingleton {
         return mInstance;
     }
 
+    public static VolleySingleton getInstance(ComingSoonFragment context2) {
+        if (mInstance == null) {
+            synchronized (VolleySingleton.class) {
+                if (mInstance == null) mInstance = new VolleySingleton(context2);
+            }
+        }
+        return mInstance;
+    }
+
    public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(mCtx.getActivity());
@@ -89,14 +99,6 @@ public class VolleySingleton {
 }
 
 
-   /*
 
-    public static VolleySingleton getInstance(ComingSoonFragment context2) {
-        if (mInstance == null) {
-            synchronized (VolleySingleton.class) {
-                if (mInstance == null) mInstance = new VolleySingleton(context2);
-            }
-        }
-        return mInstance;
-    }*/
+
 

@@ -76,7 +76,6 @@ public class soonAdapter extends RecyclerView.Adapter<soonAdapter.MyViewHolder> 
 
             public MyViewHolder(View v) {
                 super(v);
-
                 tvName = (TextView) v.findViewById(R.id.tv_text);
                 tvDesc = (TextView) v.findViewById(R.id.tv_desc);
                 imageView = (ImageView) v.findViewById(R.id.iv_image);
