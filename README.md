@@ -1,7 +1,7 @@
 # Cinemovie
 <h2> Nama Aplikasi      : Cinemovie 
 <br>
-<br> Link APK Release    : 
+<br> Link APK Release    : https://drive.google.com/open?id=0B0bUEsg48930T3hTXzR0S3pEWnc
 <br><br>Identitas Siswa :
 <br><h3>Nama Lengkap : Nabilla M.BR
 <br> Kelas/No.urut: XI RPL 3 / 23
